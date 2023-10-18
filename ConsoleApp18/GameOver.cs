@@ -14,6 +14,9 @@ namespace ConsoleApp18
             // назначить gameRunning в значение false
             // стереть все через graphics.Clear
             // вывести итоговое количество очков
+            gameRunning = false;
+            graphics.Clear(Color.Black);
+            Console.WriteLine($"Итоговое количество очков: {gameScore}");
         }
     }
 }

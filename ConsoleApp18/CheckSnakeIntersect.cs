@@ -1,4 +1,6 @@
-﻿using System;
+﻿
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +12,15 @@ namespace ConsoleApp18
     {
         private static bool CheckSnakeIntersect()
         {
-            // вернуть true, если координаты нулевой ячейки змейки совпадают с одной из других ее ячеек
+            int a = snake[0][0];
+            int b = snake[0][1];
+
+            for (int i = 1; i < snake.Count; i++)
+            {
+                if (snake[i][0] == a && snake[i][1] == b)
+                    return true;// вернуть true, если координаты нулевой ячейки змейки совпадают с одной из других ее ячеек
+            }
+            return false;
         }
     }
 }

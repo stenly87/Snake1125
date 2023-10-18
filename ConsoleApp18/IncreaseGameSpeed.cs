@@ -10,8 +10,8 @@ namespace ConsoleApp18
     {
         private static void IncreaseGameSpeed()
         {
-            // уменьшить snake на 10
-            // добавить проверку, чтобы значение snake не опускалось ниже 10
+            // уменьшить speed на 10
+            // добавить проверку, чтобы значение speed не опускалось ниже 10
         }
     }
 }

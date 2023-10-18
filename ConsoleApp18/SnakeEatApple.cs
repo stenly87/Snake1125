@@ -10,7 +10,8 @@ namespace ConsoleApp18
     {
         private static bool SnakeEatApple()
         {
-            // вернуть true, если координаты яблока и нулевой ячейки змейки совпадают, иначе false
+            return apple[0] == snake[0][0] && apple[1] == snake[0][1];
+            //
         }
     }
 }
