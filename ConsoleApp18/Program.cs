@@ -24,6 +24,7 @@ namespace ConsoleApp18
         static bool gameRunning = true; // если выставить в false, змейка перестанет бежать
         static bool gamePause = false; // если выставить в true, змейка перестанет бежать, обратное переключение запустит змейку вновь
         static bool controlBlock = false; // блокировка управления
+        static List<int[]> gran;
 
         static void Main(string[] args)
         {
@@ -53,6 +54,7 @@ namespace ConsoleApp18
                 {
                     GameOver(); // закончить игру
                 }
+                
             }
         }
 
@@ -67,6 +69,7 @@ namespace ConsoleApp18
                 CleanTail(); // затираем хвост черным
                 ReindexBody(); // перемещаем координаты ячеек внутри змейки
                 ChangeHeadCoordinate(nextStep); // меняем координаты головы
+                TailSnake();
                 DrawHead(); // рисуем голову
                 if (CheckSnakeIntersect()) // проверка на то, что змейка пересекла себя
                 {
