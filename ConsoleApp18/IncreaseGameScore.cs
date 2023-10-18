@@ -12,7 +12,6 @@ namespace ConsoleApp18
         {
             // увеличить gameScore на 1
             gameScore++;
-            //Kиприн, Силин, Ковтун
         }
     }
 }
