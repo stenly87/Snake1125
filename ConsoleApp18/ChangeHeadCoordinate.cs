@@ -10,8 +10,7 @@ namespace ConsoleApp18
     {
         private static void ChangeHeadCoordinate(int[] xy)
         { 
-                snake [0][0] = xy[0]; 
-                snake [0][1] = xy[1]; 
+                snake[0] = new int[]{ xy[0], xy[1] }; 
             
         }
     }

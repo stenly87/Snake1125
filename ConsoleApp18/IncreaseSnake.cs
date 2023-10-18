@@ -11,8 +11,8 @@ namespace ConsoleApp18
         private static void IncreaseSnake()
         {
             // надо взять последнюю ячейку змейки и добавить в коллекцию snake еще одну ячейку с такими же значениями
-            
-
+            int[] last = { snake.Last()[0], snake.Last()[1] };
+            snake.Add(last);
         }
     }
 }

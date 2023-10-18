@@ -12,6 +12,9 @@ namespace ConsoleApp18
         {
             // уменьшить speed на 10
             // добавить проверку, чтобы значение speed не опускалось ниже 10
+            speed -= 10;
+            if (speed < 10)
+                speed = 10;
         }
     }
 }

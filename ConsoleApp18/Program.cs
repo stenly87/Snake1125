@@ -47,6 +47,8 @@ namespace ConsoleApp18
                 controlBlock = true; // временная блокировка управления, снимается в GetNextCoordinates
                 int oldDirection = direction;
                 CheckPressedKey(key); // меняем направление по клавишам
+                if (gamePause)
+                    controlBlock = false;
                 if (snake.Count > 1 && oldDirection != direction && oldDirection % 2 == direction % 2) // если направление было изменено на противоположное
                 {
                     GameOver(); // закончить игру
