@@ -15,10 +15,12 @@ namespace ConsoleApp18
             // нарисовать зеленый круг размером 10 на 10 по новым координатам
             for (int i = 0; i < 2; i++)
                 apple[i] = random.Next(0, 40);
-            apple[0] = apple[0] * 10;
-            apple[1] = apple[1] * 10;
-            graphics.FillEllipse(System.Drawing.Brushes.Red, apple[0], apple[1], 10, 10);
+            if (apple != snake[0])
+            {
+                apple[0] = apple[0] * 10;
+                apple[1] = apple[1] * 10;
+                graphics.FillEllipse(System.Drawing.Brushes.Red, apple[0], apple[1], 10, 10);
+            }
         }
-
     }
 }
