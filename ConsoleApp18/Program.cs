@@ -28,6 +28,7 @@ namespace ConsoleApp18
 
         static void Main(string[] args)
         {
+            Score();
             graphics = Graphics.FromHwnd(
                 Process.GetCurrentProcess().MainWindowHandle);
             graphics.Clear(Color.Black); // очистка экрана
@@ -55,8 +56,12 @@ namespace ConsoleApp18
                 {
                     GameOver(); // закончить игру
                 }
-                
             }
+        }
+
+        private static void Score()
+        {
+                Console.Title = "Кол-во очков: " + gameScore.ToString();
         }
 
         private static void RunSnake()
@@ -89,6 +94,7 @@ namespace ConsoleApp18
                 {
                     IncreaseSnake(); // увеличение длины змейки
                     IncreaseGameScore(); // увеличение кол-во очков
+                    Score();
                     IncreaseGameSpeed(); // увеличение скорости движения змейки
                     GenerateApple(); // генерация нового яблока
                 }
