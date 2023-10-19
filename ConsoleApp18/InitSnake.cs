@@ -11,7 +11,7 @@ namespace ConsoleApp18
             // speed назначить в 250 мс. это скорость движения змейки
 
             snake = new List<int[]>();
-            int [] znachenia = { 10, 10 };
+            int [] znachenia = { 20, 20 };
             snake.Add(znachenia);
             direction = 2;
             speed = 250;

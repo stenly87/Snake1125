@@ -24,7 +24,7 @@ namespace ConsoleApp18
         static bool gameRunning = true; // если выставить в false, змейка перестанет бежать
         static bool gamePause = false; // если выставить в true, змейка перестанет бежать, обратное переключение запустит змейку вновь
         static bool controlBlock = false; // блокировка управления
-        static List<int[]> gran;
+        static int[] border = new int[] {250, 250};
 
         static void Main(string[] args)
         {
@@ -32,6 +32,7 @@ namespace ConsoleApp18
             graphics = Graphics.FromHwnd(
                 Process.GetCurrentProcess().MainWindowHandle);
             graphics.Clear(Color.Black); // очистка экрана
+            Field();
             InitSnake(); // начальная инициализация змейки
             GenerateApple(); // генерация яблока
             threadSnake = new Thread(RunSnake); // создание потока для движения змейки
@@ -109,6 +110,7 @@ namespace ConsoleApp18
                 return;
             for (int i = maxIndex; i > 0; i--)
                 snake[i] = snake[i - 1];
+            
         }
     }
 }
