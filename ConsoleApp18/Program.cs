@@ -14,13 +14,16 @@ namespace ConsoleApp18
     {
         // все эти переменные нужны для работы
         static int direction; // 1 - вверх, 2 - вправо, 3 - вниз, 4 - влево
+        static int direction2;
         static List<int[]> snake; // каждая ячейка в змейке это массив длиной 2. Индекс 0 это Х, индекс 1 это Y
+        static List<int[]> snake2;
         static int speed; // задержка в мс
         static Thread threadSnake; // отдельный поток для цикла с движением змейки
         static Graphics graphics; // специальный класс для рисования
         static Random random = new Random(); // рандомайзер для яблока
         static int[] apple = new int[2]; // координаты яблока
         static int gameScore = 0; // кол-во очков
+        static int gameScore2 = 0;
         static bool gameRunning = true; // если выставить в false, змейка перестанет бежать
         static bool gamePause = false; // если выставить в true, змейка перестанет бежать, обратное переключение запустит змейку вновь
         static bool controlBlock = false; // блокировка управления
@@ -39,7 +42,7 @@ namespace ConsoleApp18
             threadSnake.Start(); // запуск потока
             RunConrol(); // запуск цикла с управлением
         }
-
+        
         private static void RunConrol()
         {
             while (gameRunning)
@@ -62,7 +65,7 @@ namespace ConsoleApp18
 
         private static void Score()
         {
-                Console.Title = "Кол-во очков: " + gameScore.ToString();
+                Console.Title ="You - " + "Кол-во очков: " + gameScore.ToString() + "                                                " + "Enemy - " + "Кол-во очков: " + gameScore2.ToString();
         }
 
         private static void RunSnake()
@@ -78,18 +81,10 @@ namespace ConsoleApp18
                 ChangeHeadCoordinate(nextStep); // меняем координаты головы
                 TailSnake();
                 DrawHead(); // рисуем голову
+                DrawHeadEnemy();
                 if (CheckSnakeIntersect()) // проверка на то, что змейка пересекла себя
                 {
                     GameOver(); // стоп игры и вывод итогов
-                    Console.WriteLine("Продолжить? (Y/N)");
-                    string contune = Console.ReadLine();
-                    if (contune == "Y" || contune == "y")
-                    {
-                        Console.Clear();
-                        gameScore = 0;
-                        gameRunning = true;
-                        Main(null);
-                    }
                 }
                 else if (SnakeEatApple()) // проверка на то, что змейка пересекла яблоко
                 {

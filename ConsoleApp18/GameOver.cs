@@ -16,6 +16,15 @@ namespace ConsoleApp18
             // вывести итоговое количество очков
             gameRunning = false;
             graphics.Clear(Color.Black);
+            Console.WriteLine("Вы проиграли, начать заново? (Y/N)");
+            string contune = Console.ReadLine();
+            if (contune == "Y" || contune == "y")
+            {
+                Console.Clear();
+                gameScore = 0;
+                gameRunning = true;
+                Main(null);
+            }
         }
     }
 }

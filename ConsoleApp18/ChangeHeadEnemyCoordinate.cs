@@ -8,9 +8,9 @@ namespace ConsoleApp18
 {
     partial class Program
     {
-        private static void ChangeHeadCoordinate(int[] xy)
-        { 
-                snake[0] = new int[]{ xy[0], xy[1] };
+        private static void ChangeHeadCoordinateEnemy(int[] xy)
+        {
+            snake2[0] = new int[] { xy[0], xy[1] };
         }
     }
 }

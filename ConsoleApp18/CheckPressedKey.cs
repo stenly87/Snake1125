@@ -18,13 +18,13 @@ namespace ConsoleApp18
             // Добавить кнопку для выхода, запускать метод GameOver
             // Если кнопка совпадает с пробелом, то запустить метод ChangeGamePause
             
-            if (key.Key == ConsoleKey.UpArrow)
+            if (key.Key == ConsoleKey.UpArrow && direction != 3)
                 direction = 1;
-            if (key.Key == ConsoleKey.RightArrow)
+            if (key.Key == ConsoleKey.RightArrow && direction != 4)
                 direction = 2;
-            if (key.Key == ConsoleKey.DownArrow)
+            if (key.Key == ConsoleKey.DownArrow && direction != 1)
                 direction = 3;
-            if (key.Key == ConsoleKey.LeftArrow)
+            if (key.Key == ConsoleKey.LeftArrow && direction != 2)
                 direction = 4;
             if (key.Key == ConsoleKey.Escape)
                 GameOver();

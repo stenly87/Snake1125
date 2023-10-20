@@ -46,10 +46,12 @@
   <ItemGroup>
     <Compile Include="ChangeGamePause.cs" />
     <Compile Include="ChangeHeadCoordinate.cs" />
+    <Compile Include="ChangeHeadEnemyCoordinate.cs" />
     <Compile Include="CheckPressedKey.cs" />
     <Compile Include="CheckSnakeIntersect.cs" />
     <Compile Include="CleanTail.cs" />
     <Compile Include="DrawHead.cs" />
+    <Compile Include="DrawHeadEnemy.cs" />
     <Compile Include="Field.cs" />
     <Compile Include="GameOver.cs" />
     <Compile Include="GenerateApple.cs" />
