@@ -1,26 +1,22 @@
-﻿
-
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ConsoleApp18
 {
+
     partial class Program
     {
-        private static bool CheckSnakeIntersect()
+        private static void TailSnake()
         {
-            int a = snake[0][0];
-            int b = snake[0][1];
-
             for (int i = 1; i < snake.Count; i++)
             {
-                if (snake[i][0] == a && snake[i][1] == b)
-                    return true;
+                graphics.FillEllipse(System.Drawing.Brushes.Green, snake[i][0], snake[i][1], 10, 10);
             }
-            return false;
         }
     }
 }

@@ -14,34 +14,41 @@ namespace ConsoleApp18
     {
         // все эти переменные нужны для работы
         static int direction; // 1 - вверх, 2 - вправо, 3 - вниз, 4 - влево
+        static int direction2;
         static List<int[]> snake; // каждая ячейка в змейке это массив длиной 2. Индекс 0 это Х, индекс 1 это Y
+        static List<int[]> snake2;
         static int speed; // задержка в мс
         static Thread threadSnake; // отдельный поток для цикла с движением змейки
         static Graphics graphics; // специальный класс для рисования
         static Random random = new Random(); // рандомайзер для яблока
         static int[] apple = new int[2]; // координаты яблока
         static int gameScore = 0; // кол-во очков
+        static int gameScore2 = 0;
         static bool gameRunning = true; // если выставить в false, змейка перестанет бежать
         static bool gamePause = false; // если выставить в true, змейка перестанет бежать, обратное переключение запустит змейку вновь
         static bool controlBlock = false; // блокировка управления
+        static int[] border = new int[] {250, 250};
 
         static void Main(string[] args)
         {
+            Score();
             graphics = Graphics.FromHwnd(
                 Process.GetCurrentProcess().MainWindowHandle);
             graphics.Clear(Color.Black); // очистка экрана
+            Field();
             InitSnake(); // начальная инициализация змейки
             GenerateApple(); // генерация яблока
             threadSnake = new Thread(RunSnake); // создание потока для движения змейки
             threadSnake.Start(); // запуск потока
             RunConrol(); // запуск цикла с управлением
         }
-
+        
         private static void RunConrol()
         {
             while (gameRunning)
             {   // в цикле читаем нажатую кнопку.
-                ConsoleKeyInfo key = Console.ReadKey();                
+                ConsoleKeyInfo key = Console.ReadKey();
+                Console.SetCursorPosition(0, 0);
                 if (controlBlock)   // если controlBlock стоит в значении true, то переход к следующей итерации
                     continue;
                 controlBlock = true; // временная блокировка управления, снимается в GetNextCoordinates
@@ -56,6 +63,11 @@ namespace ConsoleApp18
             }
         }
 
+        private static void Score()
+        {
+                Console.Title ="You - " + "Кол-во очков: " + gameScore.ToString() + "                                                " + "Enemy - " + "Кол-во очков: " + gameScore2.ToString();
+        }
+
         private static void RunSnake()
         {
             while (gameRunning)
@@ -67,7 +79,9 @@ namespace ConsoleApp18
                 CleanTail(); // затираем хвост черным
                 ReindexBody(); // перемещаем координаты ячеек внутри змейки
                 ChangeHeadCoordinate(nextStep); // меняем координаты головы
+                TailSnake();
                 DrawHead(); // рисуем голову
+                DrawHeadEnemy();
                 if (CheckSnakeIntersect()) // проверка на то, что змейка пересекла себя
                 {
                     GameOver(); // стоп игры и вывод итогов
@@ -76,6 +90,7 @@ namespace ConsoleApp18
                 {
                     IncreaseSnake(); // увеличение длины змейки
                     IncreaseGameScore(); // увеличение кол-во очков
+                    Score();
                     IncreaseGameSpeed(); // увеличение скорости движения змейки
                     GenerateApple(); // генерация нового яблока
                 }
@@ -90,6 +105,7 @@ namespace ConsoleApp18
                 return;
             for (int i = maxIndex; i > 0; i--)
                 snake[i] = snake[i - 1];
+            
         }
     }
 }
