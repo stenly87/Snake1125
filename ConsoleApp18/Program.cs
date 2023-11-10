@@ -41,7 +41,8 @@ namespace ConsoleApp18
         {
             while (gameRunning)
             {   // в цикле читаем нажатую кнопку.
-                ConsoleKeyInfo key = Console.ReadKey();                
+                ConsoleKeyInfo key = Console.ReadKey();
+                Console.SetCursorPosition(100, 0);
                 if (controlBlock)   // если controlBlock стоит в значении true, то переход к следующей итерации
                     continue;
                 controlBlock = true; // временная блокировка управления, снимается в GetNextCoordinates
