@@ -9,18 +9,17 @@ namespace ConsoleApp18.OOPSnake
 {
     internal class Control
     {
-        private static bool controlBlock;
+        private bool controlBlock;
         Game game;
 
         public Control(Game game)
         {
             this.game = game;
-            RunControl();
         }
 
-        private void RunControl()
+        public void RunControl()
         {
-            while (game.Status == Status.Running)
+            while (game.Status != Status.GameOver)
             {   // в цикле читаем нажатую кнопку.
                 ConsoleKeyInfo key = Console.ReadKey();
                 Console.SetCursorPosition(100, 0);
@@ -31,10 +30,7 @@ namespace ConsoleApp18.OOPSnake
                 CheckPressedKey(key); // меняем направление по клавишам
                 if (game.Status == Status.Pause)
                     controlBlock = false;
-                //if (snake.Count > 1 && oldDirection != direction && oldDirection % 2 == direction % 2) // если направление было изменено на противоположное
-                //{
-                //    GameOver(); // закончить игру
-                //}
+                
             }
         }
 
@@ -52,6 +48,11 @@ namespace ConsoleApp18.OOPSnake
                 game.GameOver();
             if (key.Key == ConsoleKey.Spacebar)
                 game.ChangeGamePause();
+        }
+
+        internal void FreeBlock()
+        {
+            controlBlock = false;
         }
     }
 }

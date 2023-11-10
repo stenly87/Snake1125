@@ -21,11 +21,13 @@ namespace ConsoleApp18
         {
             get
             {
-                Tail.X = cells.Last().X;
-                Tail.Y = cells.Last().Y;
+                _tail.X = cells.Last().X;
+                _tail.Y = cells.Last().Y;
                 return _tail;
             }
         }
+
+        public int Length { get => cells.Count; }
 
         List<SnakeCell> cells;
 

@@ -33,14 +33,20 @@ namespace ConsoleApp18
         }
 
         Randomizer randomizer;
+        DrawGame _drawGame;
 
-        public GameField()
+        public GameField(int width, int height, DrawGame drawGame)
         {
+            Width = width;
+            Height = height;
+            _drawGame = drawGame;
             randomizer = new Randomizer(this);
             randomizer.GenerateCoordinates(out int x,
                 out int y);
-            this.snake = new Snake(x, y);
-            this.apple = new Apple(randomizer);
+            snake = new Snake(x, y);
+            apple = new Apple(randomizer);
+            _drawGame.DrawHead(Snake.Head);
+            _drawGame.DrawApple(Apple);
         }
 
         internal bool Intersect(int x, int y)
@@ -50,7 +56,7 @@ namespace ConsoleApp18
             return snake.CheckSnakeIntersectCoordinate(x, y);
         }
 
-        internal StepResult CalculateGameStep(Direction direction, DrawGame _drawGame)
+        internal StepResult CalculateGameStep(Direction direction)
         {
             _drawGame.CleanTail(Snake.Tail);
             Snake.Move(direction);
@@ -61,6 +67,7 @@ namespace ConsoleApp18
             }
             else if (Snake.CheckSnakeEatApple(Apple))
             {
+                _drawGame.DrawApple(Apple);
                 return StepResult.EatApple;
             }
             return StepResult.Nothing;

@@ -21,8 +21,8 @@ namespace ConsoleApp18
             */
             do
             {
-                x = rnd.Next(0, field.Width);
-                y = rnd.Next(0, field.Height);
+                x = rnd.Next(0, field.Width/10)*10;
+                y = rnd.Next(0, field.Height/10)*10;
             }
             while (field.Intersect(x,y));
         }

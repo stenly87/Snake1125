@@ -45,32 +45,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OOPSnake\Apple.cs" />
-    <Compile Include="ChangeGamePause.cs" />
-    <Compile Include="ChangeHeadCoordinate.cs" />
-    <Compile Include="CheckPressedKey.cs" />
-    <Compile Include="CheckSnakeIntersect.cs" />
-    <Compile Include="CleanTail.cs" />
-    <Compile Include="OOPSnake\Direction.cs" />
-    <Compile Include="DrawHead.cs" />
+    <Compile Include="OOPSnake\Enums\Direction.cs" />
     <Compile Include="OOPSnake\Control.cs" />
     <Compile Include="OOPSnake\DrawGame.cs" />
     <Compile Include="OOPSnake\Game.cs" />
     <Compile Include="OOPSnake\GameField.cs" />
-    <Compile Include="GameOver.cs" />
-    <Compile Include="GenerateApple.cs" />
-    <Compile Include="GetNextCoordinates.cs" />
-    <Compile Include="IncreaseGameScore.cs" />
-    <Compile Include="IncreaseGameSpeed.cs" />
-    <Compile Include="IncreaseSnake.cs" />
     <Compile Include="OOPSnake\Randomizer.cs" />
     <Compile Include="OOPSnake\Scores.cs" />
-    <Compile Include="OOPSnake\Status.cs" />
-    <Compile Include="OOPSnake\StepResult.cs" />
+    <Compile Include="OOPSnake\Enums\Status.cs" />
+    <Compile Include="OOPSnake\Enums\StepResult.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="InitSnake.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="OOPSnake\Snake.cs" />
-    <Compile Include="SnakeEatApple.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

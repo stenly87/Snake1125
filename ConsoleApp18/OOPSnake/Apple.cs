@@ -20,6 +20,7 @@
         public Apple(Randomizer randomizer)
         {
             this.randomizer = randomizer;
+            Generate();
         }
 
         public void Generate()
